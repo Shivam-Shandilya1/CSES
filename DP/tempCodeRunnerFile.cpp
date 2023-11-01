@@ -1,0 +1,1 @@
+cout<<solve(list,0,1,n,0);
