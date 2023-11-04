@@ -4,25 +4,24 @@ int main()
 {
     int n;
     cin>>n;
-    unordered_set<int> vis;
-    int cnt = 1;
     vector<int> nums(n);
     for(int i = 0;i<n;i++)cin>>nums[i];
     sort(nums.begin(),nums.end());
     vector<int> preSum(nums.begin(),nums.end());
     for(int i = 1;i<n;i++)preSum[i] = preSum[i-1] + nums[i];
-    int i = 0;
-    while(i<n)
+    if(nums[0]!=1)
     {
-        if(vis.find(cnt) != vis.end())
-        {
-            cnt++;
-            continue;
-        }
-        vis.insert(cnt);
-        vis.insert(preSum[i]);
-        cnt++;
-        i++;
+        cout<<1<<endl;
+        return 0;
     }
+    for(int i = 1;i<n;i++)
+    {
+        if(nums[i] > preSum[i-1]+1)
+        {
+            cout<<preSum[i-1]+1<<endl;
+            return 0;
+        }
+    }
+    cout<<preSum[n-1]+1<<endl;
     return 0;
 }
