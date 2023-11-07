@@ -7,7 +7,7 @@ int main()
     vector<int> nums(n);
     for(int i = 0;i<n;i++)cin>>nums[i];
     sort(nums.begin(),nums.end());
-    vector<int> preSum(nums.begin(),nums.end());
+    vector<long long int> preSum(nums.begin(),nums.end());
     for(int i = 1;i<n;i++)preSum[i] = preSum[i-1] + nums[i];
     if(nums[0]!=1)
     {
